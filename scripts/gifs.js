@@ -50,6 +50,17 @@ input.addEventListener("keypress", () => {
         })    
     })
 
+input.addEventListener("keyup", function(event) {
+        // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+          // Cancel the default action, if needed
+        event.preventDefault();
+          // Trigger the button element with a click
+        document.getElementById("search").click();
+    }
+});
+
+
 function getSearchResults(search) {
     lupacambio.setAttribute('class', 'lupa');
     imageLupa.setAttribute('src', 'assets/lupa_inactive.svg');
@@ -119,7 +130,8 @@ getSuggestions("Koala")
 getSuggestions("piano")
 getSuggestions("Mordor")
 
-function switchTheme(tema) {    
+function switchTheme(tema) {
+    menutemas.style.display = 'none';    
     if (tema == "themeday"){
         link.setAttribute('href','./Styles/styledark.css');
         console.log(tema);
